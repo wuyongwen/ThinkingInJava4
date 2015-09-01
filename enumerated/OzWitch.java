@@ -18,7 +18,7 @@ public enum OzWitch {
   public String getDescription() { return description; }
   public static void main(String[] args) {
     for(OzWitch witch : OzWitch.values())
-      print(witch + ": " + witch.getDescription());
+      print(witch.ordinal()+"==" +witch.name()+" --- " + witch.getDescription());
   }
 } /* Output:
 WEST: Miss Gulch, aka the Wicked Witch of the West
