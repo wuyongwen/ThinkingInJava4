@@ -7,6 +7,7 @@ public class CachedThreadPool {
     ExecutorService exec = Executors.newCachedThreadPool();
     for(int i = 0; i < 5; i++)
       exec.execute(new LiftOff());
+    System.out.println("start ");
     exec.shutdown();
   }
 } /* Output: (Sample)

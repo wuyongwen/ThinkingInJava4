@@ -18,6 +18,19 @@ public class CollectionDataTest {
     // Using the convenience method:
     set.addAll(CollectionData.list(new Government(), 15));
     System.out.println(set);
+    
+    Integer f1 = 100, f2 = 100, f3 = 150, f4 = 150;  
+  
+    System.out.println(f1 == f2);  
+    System.out.println(f3 == f4);  
+    System.out.println(testSwitch("ab"));
+  }
+  static boolean testSwitch(String str){
+	  switch(str){
+	  case "a":return true;
+	  case "b":return false;
+	  default : return false;
+	  }
   }
 } /* Output:
 [strange, women, lying, in, ponds, distributing, swords, is, no, basis, for, a, system, of, government]

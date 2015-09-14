@@ -35,9 +35,10 @@ class Entrance implements Runnable {
   }
   public void run() {
     while(!canceled) {
-      synchronized(this) {
+     /* synchronized(this) {
         ++number;
-      }
+      }*/
+    	++number;
       print(this + " Total: " + count.increment());
       try {
         TimeUnit.MILLISECONDS.sleep(100);
@@ -68,7 +69,7 @@ public class OrnamentalGarden {
     for(int i = 0; i < 5; i++)
       exec.execute(new Entrance(i));
     // Run for a while, then stop and collect the data:
-    TimeUnit.SECONDS.sleep(3);
+    TimeUnit.MILLISECONDS.sleep(424);
     Entrance.cancel();
     exec.shutdown();
     if(!exec.awaitTermination(250, TimeUnit.MILLISECONDS))

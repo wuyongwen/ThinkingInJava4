@@ -3,17 +3,18 @@ package concurrency; /* Added by Eclipse.py */
 import java.util.concurrent.*;
 
 public class AtomicityTest implements Runnable {
-  private int i = 0;
+  private volatile  int  i = 0;
   public int getValue() { return i; }
   private synchronized void evenIncrement() { i++; i++; }
   public void run() {
     while(true)
       evenIncrement();
   }
-  public static void main(String[] args) {
+  public static void main(String[] args) throws InterruptedException {
     ExecutorService exec = Executors.newCachedThreadPool();
     AtomicityTest at = new AtomicityTest();
     exec.execute(at);
+    Thread.sleep(1000);
     while(true) {
       int val = at.getValue();
       if(val % 2 != 0) {

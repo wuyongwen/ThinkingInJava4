@@ -18,8 +18,10 @@ public class CallableDemo {
     ExecutorService exec = Executors.newCachedThreadPool();
     ArrayList<Future<String>> results =
       new ArrayList<Future<String>>();
-    for(int i = 0; i < 10; i++)
-      results.add(exec.submit(new TaskWithResult(i)));
+    for(int i = 0; i < 10; i++){
+    	Future<String> r = exec.submit(new TaskWithResult(i));
+    	results.add(r);
+    }
     for(Future<String> fs : results)
       try {
         // get() blocks until completion:

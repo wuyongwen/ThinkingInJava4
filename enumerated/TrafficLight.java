@@ -3,6 +3,8 @@ package enumerated; /* Added by Eclipse.py */
 // Enums in switch statements.
 import static net.mindview.util.Print.*;
 
+import java.util.Random;
+
 // Define an enum type:
 enum Signal { GREEN, YELLOW, RED}
 
@@ -25,8 +27,11 @@ public class TrafficLight {
   }
   public static void main(String[] args) {
     TrafficLight t = new TrafficLight();
-    for(int i = 0; i < 7; i++) {
-      print(t);
+    Random r =  new Random(47);
+    int j = r.nextInt(20);
+    System.out.println(j);
+    for(int i = 0; i <j ; i++) {
+      print(i+" -- "+t);
       t.change();
     }
   }
